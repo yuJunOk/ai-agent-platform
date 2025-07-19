@@ -4,6 +4,8 @@ server:
     context-path: /api
 
 spring:
+  profiles:
+    active: local  # 指定环境，决定选择配置文件
   application:
       name: ai-agent-system
   mail:
@@ -13,6 +15,11 @@ spring:
     username: 需要填写 #发件人邮箱地址
     password: 需要填写 #授权码
     default-encoding: UTF-8 #编码字符集
+  ai:
+    ollama:
+      base-url: 需要填写
+      chat:
+        model: 需要填写
 
 # 配置springdoc-openapi，用于文档化和访问API
 springdoc:
