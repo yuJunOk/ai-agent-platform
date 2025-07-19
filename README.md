@@ -11,7 +11,7 @@ AI助手平台
 ## 二、技术栈
 
 * Java17 + Spring Boot 3框架
-* Spring AI + LangChain4j
+* Spring AI + Ollama
 * RAG知识库
 * PGvector向量数据库
 * Tool Calling 工具调用
@@ -19,7 +19,6 @@ AI助手平台
 * Serverless计算服务
 * Cursor AI 代码生成 + MCP
 * 第三方接口：如SearchAPI / Pexels API
-* Ollama 大模型部署
 * kryo高性能序列化
 * Jsoup 网页抓取
 * iText PDF 生成
