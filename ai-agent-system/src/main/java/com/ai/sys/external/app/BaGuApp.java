@@ -11,6 +11,8 @@ import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.stereotype.Component;
 
+import java.util.Map;
+
 import static org.springframework.ai.chat.client.advisor.AbstractChatMemoryAdvisor.CHAT_MEMORY_CONVERSATION_ID_KEY;
 import static org.springframework.ai.chat.client.advisor.AbstractChatMemoryAdvisor.CHAT_MEMORY_RETRIEVE_SIZE_KEY;
 
@@ -65,5 +67,25 @@ public class BaGuApp {
         return content;
     }
 
+    record AnswerReport(Map<String, Object> answer) {
 
+    }
+
+    /**
+     * AI 报告功能，结构化输出
+     * @param message
+     * @param chatId
+     * @return
+     */
+    public AnswerReport doChatWithReport(String message, String chatId) {
+        AnswerReport answerReport = chatClient
+                .prompt()
+                .system(SYSTEM_PROMPT + "每次对话后都要生成问题答案，标题为{用户名}的问题报告，内容为分点回答列表")
+                .user(message)
+                .advisors(spec -> spec.param(CHAT_MEMORY_CONVERSATION_ID_KEY, chatId).param(CHAT_MEMORY_RETRIEVE_SIZE_KEY, 10))
+                .call()
+                .entity(AnswerReport.class);
+        log.info("answerReport: {}", answerReport);
+        return answerReport;
+    }
 }

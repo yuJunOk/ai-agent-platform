@@ -7,8 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 class BaGuAppTest {
 
@@ -28,6 +26,14 @@ class BaGuAppTest {
         // 第三轮
         message = "我刚刚问的什么来着？";
         answer = baGuApp.doChat(message, chatId);
+        Assertions.assertNotNull(answer);
+    }
+
+    @Test
+    void doChatWithReport() {
+        String chatId = UUID.randomUUID().toString();
+        String message = "你好，我是pengYuJun，我想知道jdk和jre的区别是啥呢？";
+        BaGuApp.AnswerReport answer = baGuApp.doChatWithReport(message, chatId);
         Assertions.assertNotNull(answer);
     }
 }
