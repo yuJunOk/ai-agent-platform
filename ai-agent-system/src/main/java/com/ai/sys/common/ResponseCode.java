@@ -2,12 +2,11 @@ package com.ai.sys.common;
 
 import lombok.Getter;
 
-/**对服务响应信息枚举类
+/**
+ * 服务响应信息枚举类
  *
- * @email: pengyujun53@163.com
- * @author: peng_YuJun
- * @date: 2022/9/18
- * @time: 9:47
+ * @author peng_YuJun (邮箱: pengyujun53@163.com)
+ * @since 2022/9/18
  */
 @Getter
 public enum ResponseCode {

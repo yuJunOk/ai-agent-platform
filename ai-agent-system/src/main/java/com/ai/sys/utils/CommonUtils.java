@@ -9,8 +9,7 @@ public class CommonUtils {
 
     /**
      * 判断是否存在字符串为空
-     * @param strs
-     * @return
+     * @return boolean
      */
     public static boolean isAnyBlank(String... strs) {
         for (String str : strs) {
