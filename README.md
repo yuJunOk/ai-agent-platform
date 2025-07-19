@@ -17,7 +17,6 @@ AI助手平台
 * Tool Calling 工具调用
 * ReAct Agent工具调用
 * Serverless计算服务
-* AI大模型开发平台百练
 * Cursor AI 代码生成 + MCP
 * 第三方接口：如SearchAPI / Pexels API
 * Ollama 大模型部署
