@@ -1,4 +1,4 @@
-package com.ai.sys.external;
+package com.ai.sys.external.demo;
 
 import jakarta.annotation.Resource;
 import org.springframework.ai.chat.messages.AssistantMessage;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * SpringAI 调用 ollama大模型
  * @author pengYuJun
  */
-@Component
+//@Component
 public class OllamaAiInvoke implements CommandLineRunner {
 
     @Resource
