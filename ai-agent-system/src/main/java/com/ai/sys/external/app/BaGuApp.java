@@ -67,7 +67,7 @@ public class BaGuApp {
         return content;
     }
 
-    record AnswerReport(Map<String, Object> answer) {
+    public record AnswerReport(Map<String, Object> answer) {
 
     }
 
