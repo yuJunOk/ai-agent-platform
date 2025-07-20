@@ -36,4 +36,12 @@ class BaGuAppTest {
         BaGuApp.AnswerReport answer = baGuApp.doChatWithReport(message, chatId);
         Assertions.assertNotNull(answer);
     }
+
+    @Test
+    void doChatWithRag() {
+        String chatId = UUID.randomUUID().toString();
+        String message = "你好，我是pengYuJun，我想知道jdk和jre的区别是啥呢？";
+        String answer = baGuApp.doChatWithRag(message, chatId);
+        Assertions.assertNotNull(answer);
+    }
 }
