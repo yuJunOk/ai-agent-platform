@@ -40,7 +40,7 @@ class BaGuAppTest {
     @Test
     void doChatWithRag() {
         String chatId = UUID.randomUUID().toString();
-        String message = "你好，我是pengYuJun，我想知道jdk和jre的区别是啥呢？";
+        String message = "你好，我是pengYuJun，我想知道MySQL 的索引类型有哪些？";
         String answer = baGuApp.doChatWithRag(message, chatId);
         Assertions.assertNotNull(answer);
     }
