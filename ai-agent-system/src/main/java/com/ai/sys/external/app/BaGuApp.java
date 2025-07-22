@@ -11,6 +11,7 @@ import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.memory.InMemoryChatMemory;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.model.ChatResponse;
+import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.stereotype.Component;
 
@@ -106,7 +107,9 @@ public class BaGuApp {
                 .user(message)
                 .advisors(spec -> spec.param(CHAT_MEMORY_CONVERSATION_ID_KEY, chatId).param(CHAT_MEMORY_RETRIEVE_SIZE_KEY, 10))
                 // 应用知识库问答
-                .advisors(new QuestionAnswerAdvisor(baGuAppVectorStore))
+                //.advisors(new QuestionAnswerAdvisor(baGuAppVectorStore))
+                // 相似度阈值为 0.8，并返回最相关的前 6 个结果
+                .advisors(QuestionAnswerAdvisor.builder(baGuAppVectorStore).searchRequest(SearchRequest.builder().similarityThreshold(0.8d).topK(6).build()).build())
                 .call()
                 .chatResponse();
         return chatResponse.getResult().getOutput().getText();
