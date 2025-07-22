@@ -44,4 +44,12 @@ class BaGuAppTest {
         String answer = baGuApp.doChatWithRag(message, chatId);
         Assertions.assertNotNull(answer);
     }
+
+    @Test
+    void doChatWithTools() {
+        String chatId = UUID.randomUUID().toString();
+        String message = "你好，我是pengYuJun，我想知道MySQL 的索引类型有哪些？ 将回答保存为文件。";
+        String answer = baGuApp.doChatWithTools(message, chatId);
+        Assertions.assertNotNull(answer);
+    }
 }
